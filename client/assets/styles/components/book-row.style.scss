@@ -1,0 +1,102 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+@import "@/assets/styles/_animations.scss";
+
+.book-row {
+  @include Card;
+  animation: FadeIn 0.5s forwards;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  &:hover {
+    > .imageContainer > img {
+      transform: scale(1.05);
+    }
+  }
+  .imageContainer {
+    @include CenterChildren();
+    border-radius: $border_radius_1;
+    position: relative;
+    &.noImage {
+      border: 1px solid $color_shadow;
+    }
+    img {
+      width: 70px;
+      object-fit: cover;
+      border-radius: $border_radius_1;
+      box-shadow: $box_shadow;
+      transition: transform 0.5s;
+      opacity: 0;
+      &.loaded {
+        animation: FadeIn 0.5s forwards;
+      }
+    }
+    .icon {
+      font-size: $font_size_1 * 3;
+      color: transparentize($color: $color_primary_1, $amount: 0.5);
+    }
+    .spinner {
+      @include AbsoluteCenter();
+    }
+    .discount {
+      background-color: red;
+      color: white;
+      position: absolute;
+      top: -$padding * 1.5;
+      left: -$padding * 1.5;
+      @include Circle(35px);
+      @include CenterChildren();
+      box-shadow: $box_shadow;
+      font-weight: bold;
+    }
+  }
+  ul {
+    flex: 1;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-right: calc($padding);
+    li {
+      span {
+        flex: 1;
+        font-size: $font_size_2 * 1.25;
+        &.name {
+          display: inline-block;
+          @include Truncate(100%);
+        }
+        &.publisher {
+          font-size: $font_size_2;
+        }
+        &.price {
+          font-weight: bold;
+          font-size: $font_size_1;
+          color: $color_text_1;
+        }
+      }
+      .value {
+        color: $color_text_1;
+        &.price {
+          font-weight: bold;
+          color: $color_text_1;
+          font-size: $font_size_1;
+          padding: 0 calc($padding/2);
+          &.lineThrough {
+            color: $color_text_3;
+            text-decoration: line-through;
+            font-size: calc($font_size_1 * 0.9);
+          }
+          &.totalAfterDiscount {
+          }
+        }
+      }
+      .currency {
+        font-size: $font_size_1 * 0.75;
+        color: $color_text_1;
+        font-weight: bold;
+      }
+    }
+  }
+}

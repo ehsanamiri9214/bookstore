@@ -1,0 +1,36 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.modalContent {
+  min-width: 250px;
+  padding-top: calc($padding * 4);
+  > p {
+    color: $color_text_1;
+    font-size: $font_size_1;
+    text-align: center;
+    direction: rtl;
+    margin-bottom: $padding;
+    &.error {
+      color: $color_red;
+    }
+  }
+  ul {
+    list-style-type: none;
+    li {
+      margin-bottom: $padding;
+      align-self: flex-start;
+    }
+  }
+  button {
+    width: 100%;
+    @include Button($font_size_1, $padding, $color_white, $color_primary_2);
+    border-radius: $border-radius-1;
+    span {
+      padding-left: $padding;
+    }
+    .icon {
+      font-size: $font_size_1 * 1.5;
+    }
+  }
+}

@@ -1,0 +1,127 @@
+version: '3.4'
+services:
+  nginx_dev:
+    container_name: nginx
+    image: nginx:stable-alpine
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - dibabook_network
+    restart: unless-stopped
+    depends_on:
+      - db
+      - be_dev
+      - fe_dev
+  # -----------------------------------------------------------------
+  nginx_prod:
+    container_name: nginx
+    image: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - dibabook_network
+    restart: unless-stopped
+    depends_on:
+      - db
+      - be_prod
+      - fe_prod
+  # -----------------------------------------------------------------
+  be_dev:
+    container_name: be_dev
+    image: be_dev:0.1
+    build:
+      context: ./server
+      target: dev
+      dockerfile: Dockerfile
+    command: npm run start:debug
+    ports:
+      - 8000:8000
+      - 9229:9229
+    networks:
+      - dibabook_network
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+    depends_on:
+      - db
+      - fe_dev
+  # -----------------------------------------------------------------
+  be_prod:
+    container_name: be_prod
+    image: be_prod:0.1
+    build:
+      context: ./server
+      target: prod
+      dockerfile: Dockerfile
+    command: npm run start:prod
+    ports:
+      - 8000:8000
+      - 9229:9229
+    networks:
+      - dibabook_network
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+    depends_on:
+      - db
+      - fe_prod
+  # -----------------------------------------------------------------
+  fe_dev:
+    container_name: fe_dev
+    image: fe_dev:0.1
+    build:
+      context: ./client
+      target: dev
+      dockerfile: Dockerfile
+    command: npm run dev
+    ports:
+      - 3000:3000
+    networks:
+      - dibabook_network
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+  # -----------------------------------------------------------------
+  fe_prod:
+    container_name: fe_prod
+    image: fe_prod:0.1
+    build:
+      context: ./client
+      target: prod
+      dockerfile: Dockerfile
+    command: npm run dev
+    ports:
+      - 3000:3000
+    networks:
+      - dibabook_network
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+  # -----------------------------------------------------------------
+  db:
+    container_name: db
+    image: mysql:8
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    networks:
+      - dibabook_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+  # -----------------------------------------------------------------
+volumes:
+  mysql_data:
+networks:
+  dibabook_network:

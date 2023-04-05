@@ -1,0 +1,91 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.page {
+  display: flex;
+  flex-direction: row;
+  direction: rtl;
+  > div {
+    @include Card;
+  }
+  .menu {
+    flex: 1;
+    margin-left: $padding;
+    ul {
+      display: flex;
+      flex-direction: column;
+      li {
+        display: flex;
+        a {
+          flex: 1;
+          text-decoration: none;
+          color: $color_text_1;
+          text-align: right;
+          padding: $padding;
+          border-bottom: 1px solid $color_shadow;
+          transition: background-color 0.5s;
+          border-radius: $border_radius_1;
+          &:hover,
+          &.active {
+            background-color: $color_body_background;
+          }
+          &:last-of-type {
+            border: none;
+          }
+          .icon {
+            margin-left: calc($padding/2);
+          }
+        }
+      }
+    }
+  }
+  .details {
+    flex: 4;
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1000px) {
+  .page {
+    flex-direction: column;
+    .menu {
+      margin-left: 0;
+      margin-bottom: $padding;
+      ul {
+        flex-direction: row;
+        li {
+          a {
+            padding: $padding $padding * 2;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page {
+    flex-direction: column;
+    .menu {
+      ul {
+        li {
+          display: flex;
+          a {
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            span{
+              flex:1;
+              text-align: center;
+              margin-top: $padding;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.sub-category.sub6 {
+  animation: ComeRight 0.5s forwards;
+  > ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    > li {
+      flex: 1;
+      padding: 0 calc($padding/2);
+      > ul {
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+        align-content: space-between;
+        list-style-type: none;
+        > li {
+          border-bottom: 1px solid $color_shadow;
+          &:last-of-type {
+            border: none;
+          }
+          &.head {
+            a {
+              color: $color_text_1;
+              cursor: default;
+            }
+          }
+          &:not(.head) a:hover {
+            background-color: $color_body_background;
+          }
+          a {
+            text-decoration: none;
+            display: block;
+            padding: $padding;
+            border-radius: $border_radius_1;
+            transition: background-color 0.5s;
+          }
+        }
+      }
+    }
+  }
+}

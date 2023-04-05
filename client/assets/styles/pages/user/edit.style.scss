@@ -1,0 +1,29 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+
+.page {
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      padding: $padding;
+      border: none;
+      outline: none;
+      text-align: center;
+      border-bottom: 1px solid $color_shadow;
+      color: $color_text_1;
+    }
+    button {
+      padding: $padding;
+      border: none;
+      outline: none;
+      border-radius: $border_radius_1;
+      margin-top: $padding;
+      color: $color_white;
+      background-color: $color_primary_2;
+      height: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}

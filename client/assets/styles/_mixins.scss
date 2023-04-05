@@ -1,0 +1,84 @@
+@mixin Card {
+  background-color: $color_white;
+  border-radius: $border_radius_1;
+  box-shadow: $box_shadow;
+  padding: $padding;
+}
+
+@mixin DarkCard {
+  background-color: $color_black;
+  border-radius: $border_radius_1;
+  box-shadow: $box_dark_shadow;
+  padding: $padding;
+}
+
+@mixin BorderRadius($size) {
+  -webkit-border-radius: $size;
+  -moz-border-radius: $size;
+  border-radius: $size;
+}
+
+@mixin Circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin CenterChildren() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin AbsoluteCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin Stick($top, $zIndex) {
+  position: sticky;
+  top: $top;
+  z-index: $zIndex;
+}
+
+@mixin Button($fontSize, $padding, $color, $bColor) {
+  border: none;
+  outline: none;
+  color: $color;
+  background-color: $bColor;
+  padding: $padding $padding * 2;
+  font-size: $fontSize;
+  cursor: pointer;
+  @include AnimatedBorder($color, 0.5s);
+}
+
+@mixin AnimatedBorder($bColor, $duration) {
+  transition: border-color $duration;
+  border-bottom: 1px solid transparent;
+  &:hover,
+  &.active {
+    border-color: $bColor;
+  }
+}
+
+@mixin Truncate($width) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin RemoveArrows() {
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  /* Firefox */
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+}

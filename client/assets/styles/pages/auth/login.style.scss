@@ -1,0 +1,45 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.page {
+  display: flex;
+  justify-content: center;
+  .cardContainer {
+    width: 500px;
+    max-width: 500px;
+    .card {
+      @include Card;
+      form {
+        display: flex;
+        flex-direction: column;
+        input {
+          padding: $padding;
+          border: none;
+          outline: none;
+          text-align: center;
+          border-bottom: 1px solid $color_shadow;
+          color: $color_text_1;
+        }
+        button {
+          padding: $padding;
+          border: none;
+          outline: none;
+          border-radius: $border_radius_1;
+          margin-top: calc($padding/2);
+          color: $color_white;
+          background-color: $color_primary_2;
+          height: 40px;
+          cursor: pointer;
+        }
+        .error {
+          margin-top: $padding;
+          text-align: center;
+          direction: rtl;
+          color: $color_red;
+          font-size: $font_size_2;
+        }
+      }
+    }
+  }
+}

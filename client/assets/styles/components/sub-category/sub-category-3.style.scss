@@ -1,0 +1,74 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.sub-category.sub3 {
+  animation: ComeRight 0.5s forwards;
+  > ul.subCategories {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    position: relative;
+    border-bottom: 1px solid $color_shadow;
+    padding-bottom: calc($padding/2);
+    > li {
+      flex: 1;
+      padding: 0 calc($padding/2);
+      > ul {
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+        align-content: space-between;
+        list-style-type: none;
+        > li {
+          border-bottom: 1px solid $color_shadow;
+          &:last-of-type {
+            border: none;
+          }
+          &.head {
+            a {
+              color: $color_text_1;
+              font-weight: bold;
+            }
+          }
+          &:not(.head) a:hover,
+          &.active a {
+            background-color: $color_body_background;
+          }
+          a {
+            text-decoration: none;
+            display: block;
+            padding: $padding;
+            border-radius: $border_radius_1;
+            transition: background-color 0.5s;
+          }
+        }
+      }
+    }
+  }
+  ul.subCategoryItems {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    direction: rtl;
+    li {
+      margin: 0 calc($padding/2);
+      border-bottom: 1px solid $color_shadow;
+      margin-top: calc($padding/2);
+      a {
+        text-decoration: none;
+        display: block;
+        height: 100%;
+        padding: $padding $padding * 2;
+        border-radius: $border_radius_1;
+        transition: background-color 0.5s;
+        @include CenterChildren();
+        &:hover {
+          background-color: $color_body_background;
+        }
+      }
+    }
+  }
+}

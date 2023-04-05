@@ -1,0 +1,36 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+@import "@/assets/styles/_animations.scss";
+
+.modal {
+  @include CenterChildren();
+  animation: FadeIn 0.5s forwards;
+  background-color: transparentize($color: $color_black, $amount: 0.5);
+  overflow-y: scroll;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  padding: $padding;
+  .child {
+    @include Card;
+    position: relative;
+    .closeButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include Button(
+        $font_size_1 * 2,
+        calc($padding/2),
+        $color_white,
+        transparent
+      );
+      border: none;
+      -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+    }
+  }
+}

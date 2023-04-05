@@ -1,0 +1,75 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.address {
+  @include Card;
+  position: relative;
+  min-width: 400px;
+  border: 1px solid transparent;
+  &.selectable {
+    cursor: pointer;
+    transition: border-color 0.5s;
+    &:hover {
+      border: 1px solid $color_shadow;
+    }
+  }
+  .top {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    li {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      color: $color_text_1;
+      font-size: $font_size_1;
+      border-bottom: 1px solid $color_shadow;
+      padding: $padding 0;
+      &:last-of-type {
+        border: none;
+        padding-bottom: 0;
+      }
+      &:first-of-type {
+        padding-top: 0;
+      }
+      .title {
+        flex: 1;
+        text-align: right;
+        color: $color_text_1;
+      }
+      .value {
+        flex: 4;
+        text-align: center;
+        padding-right: $padding;
+      }
+    }
+  }
+  .details {
+    color: $color_text_1;
+    font-size: $font_size_1;
+    text-align: right;
+  }
+  .closeButton {
+    @include Button($font_size_1, 0, $color_text_1, transparent);
+    border:1px solid $color_shadow;
+    @include Circle(25px);
+    position: absolute;
+    top: calc($padding/2);
+    left: calc($padding/2);
+  }
+  .spinner {
+    position: absolute;
+    @include AbsoluteCenter();
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 500px) {
+  .address {
+    min-width: auto;
+    width: 100%;
+  }
+}

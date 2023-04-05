@@ -1,0 +1,25 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.publisher-row {
+  @include Card;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  &:hover img {
+    transform: scale(1.05);
+  }
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: $border_radius_1;
+    transition: transform 0.5s;
+  }
+  p {
+    flex: 1;
+    color: $color_text_1;
+    padding-right: $padding;
+  }
+}

@@ -1,0 +1,5 @@
+export enum OrderStatus {
+  PROCESSING = 'PROCESSING',
+  IN_POST_OFFICE = 'IN_POST_OFFICE',
+  DELIVERED = 'DELIVERED',
+}

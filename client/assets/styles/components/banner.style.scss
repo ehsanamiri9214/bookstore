@@ -1,0 +1,19 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+
+.banner {
+  display: flex;
+  max-height: 400px;
+  overflow: hidden;
+  > section {
+    flex: 1;
+    display: flex;
+    border-radius: $border_radius_1;
+    overflow: hidden;
+    .carousel__item {
+      flex: 1;
+      display: flex;
+      margin: 0 calc($padding/2);
+    }
+  }
+}

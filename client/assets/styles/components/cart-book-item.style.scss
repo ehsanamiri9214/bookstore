@@ -1,0 +1,129 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.cart-book-item {
+  @include Card;
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.5s, opacity 0.5s;
+  &.removed {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+  &:hover {
+    img,
+    .imageContainer .icon {
+      transform: scale(1.05);
+    }
+  }
+  .bookInfo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    direction: rtl;
+    cursor: pointer;
+    padding: $padding;
+    .imageContainer {
+      width: 100px;
+      height: 100%;
+      display: flex;
+      @include CenterChildren();
+      position: relative;
+      img {
+        width: 100px;
+        //   height: 100px;
+        object-fit: contain;
+        border-radius: $border_radius_1;
+        transition: transform 0.5s;
+        box-shadow: $box_shadow;
+        opacity: 0;
+        &.loaded {
+          animation: FadeIn 0.5s forwards;
+        }
+      }
+      .icon {
+        font-size: $font_size_1 * 5;
+        color: transparentize($color: $color_primary_1, $amount: 0.5);
+        transition: transform 0.5s;
+      }
+      .spinner {
+        @include AbsoluteCenter();
+      }
+      .discount {
+        background-color: red;
+        color: white;
+        position: absolute;
+        top: -$padding * 1.5;
+        left: -$padding * 1.5;
+        @include Circle(35px);
+        @include CenterChildren();
+        box-shadow: $box_shadow;
+        font-weight: bold;
+      }
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      margin-right: $padding;
+      color: $color_text_1;
+      li {
+        text-align: right;
+        span {
+          flex: 1;
+          font-size: $font_size_1;
+          &.price {
+            font-size: $font_size_1;
+            color: $color_text_1;
+          }
+        }
+        .value {
+          color: $color_text_1;
+          &.price {
+            font-weight: bold;
+            color: $color_text_1;
+            font-size: $font_size_1;
+            padding: 0 calc($padding/2);
+            &.lineThrough {
+              color: $color_text_3;
+              text-decoration: line-through;
+              font-size: calc($font_size_1 * 0.9);
+            }
+            &.totalAfterDiscount {
+            }
+          }
+        }
+        .currency {
+          font-size: $font_size_1 * 0.75;
+          color: $color_text_1;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .utils {
+    display: flex;
+    flex-direction: column;
+    @include CenterChildren();
+    padding: $padding;
+    button {
+      @include Button(
+        $font_size_1 * 1.5,
+        calc($padding/2),
+        $color_text_1,
+        transparent
+      );
+      font-size: $font_size_1 * 1.5;
+      border: 1px solid $color_shadow;
+      width: 50px;
+      height: 50px;
+      border-radius: $border_radius_1;
+    }
+    span {
+      color: $color_text_1;
+      font-size: $font_size_1 * 1.25;
+      margin-top: calc($padding);
+    }
+  }
+}

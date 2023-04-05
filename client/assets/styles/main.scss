@@ -1,0 +1,64 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/fonts.scss";
+@import "@/assets/styles/_animations.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: vazir;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body {
+  background-color: $color_body_background;
+  overflow: hidden;
+  #app {
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    &.hideScrolls {
+      overflow: hidden;
+    }
+    &.showResultBox {
+      overflow: hidden;
+      .overlay {
+        display: block;
+        content: "";
+        width: 100vw;
+        height: 100vh;
+        background-color: transparentize($color: $color_black, $amount: 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        animation: FadeIn 0.5s forwards;
+      }
+    }
+    main {
+      padding: $padding;
+      background-color: $color_body_background;
+      min-height: 80vh;
+      > .spinnerContainer {
+        margin: 200px;
+      }
+      .page {
+        animation: FadeIn 0.5s forwards;
+      }
+    }
+    .overlay {
+      display: none;
+    }
+  }
+}
+
+.dark-mode body {
+  background-color: $color_dark_body_background;
+  .app {
+    main {
+      background-color: $color_dark_body_background;
+    }
+  }
+}

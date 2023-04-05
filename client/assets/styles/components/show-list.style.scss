@@ -1,0 +1,38 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.show-list {
+  @include Card;
+  .header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid $color_shadow;
+    padding-bottom: calc($padding/2);
+    a {
+      text-decoration: none;
+      background-color: $color_primary_3;
+      color: $color_white;
+      padding: calc($padding/4) $padding * 1.5;
+      border-radius: $border_radius_1;
+      box-shadow: $box_shadow;
+    }
+    p {
+      flex: 1;
+      text-align: right;
+      color: $color_text_1;
+    }
+  }
+  .items {
+    margin-top: $padding;
+    flex: 1;
+    border-radius: $border_radius_1;
+    overflow: hidden;
+    .carousel__item {
+      flex: 1;
+      margin: 0 calc($padding/2);
+      border-radius: $border_radius_1;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+
+.row-data-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: $padding 0;
+  color: $color_text_1;
+  font-size: $font_size_1;
+  .icon {
+    margin-left: calc($padding);
+  }
+  .title {
+    flex: 1;
+    text-align: right;
+  }
+  .value {
+    flex: 3;
+    text-align: right;
+    &.ltr{
+      direction: ltr;
+    }
+  }
+}

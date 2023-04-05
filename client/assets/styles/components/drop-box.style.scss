@@ -1,0 +1,33 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.box {
+  @include Card;
+  padding: 0 $padding;
+  &.showItems {
+    .top {
+      border-bottom-color: $color_shadow;
+    }
+    .items {
+      display: block;
+    }
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    padding:$padding 0;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    p {
+      flex: 1;
+      text-align: right;
+    }
+  }
+  .items {
+    display: none;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}

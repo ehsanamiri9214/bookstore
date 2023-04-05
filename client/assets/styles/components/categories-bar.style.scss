@@ -1,0 +1,105 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.categoriesBar {
+  background-color: $color_white;
+  box-shadow: $box_shadow;
+  > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    > li {
+      padding: $padding;
+      cursor: pointer;
+      text-align: center;
+      @include AnimatedBorder($color_text_1, 0.5s);
+      a,
+      span {
+        color: $color_text_1;
+        text-decoration: none;
+      }
+      .icon {
+        margin-left: calc($padding/2);
+      }
+      &:last-of-type {
+        position: relative;
+        &:hover {
+          .categoriesContainer {
+            visibility: visible;
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        .categoriesContainer {
+          visibility: hidden;
+          transform: translateY(5px);
+          opacity: 0;
+          transition: transform 0.5s, opacity 0.5s;
+          position: absolute;
+          z-index: 1;
+          top: 100%;
+          right: 0;
+          width: 100vw;
+          padding: 0 $padding;
+          cursor: auto;
+          .categories {
+            @include Card;
+            background-color: $color_white;
+            display: flex;
+            color: $color_text_1;
+            .right {
+              flex: 1;
+              ul {
+                display: flex;
+                flex-direction: column;
+                li {
+                  text-align: right;
+                  transition: background-color 0.5s;
+                  margin-left: $padding;
+                  text-align: center;
+                  display: flex;
+                  cursor: default;
+                  &:last-of-type {
+                    border: none;
+                  }
+                  &:hover,
+                  &.selected {
+                    span {
+                      background-color: $color_body_background;
+                    }
+                  }
+                  a {
+                    width: 100%;
+                    display: block;
+                    border-bottom: 1px solid $color_shadow;
+                    span {
+                      border-radius: $border_radius_1;
+                      display: block;
+                      flex: 1;
+                      height: 100%;
+                      padding: $padding;
+                    }
+                  }
+                }
+              }
+            }
+            .left {
+              flex: 5;
+              border: 1px solid $color_shadow;
+              border-radius: $border_radius_1;
+              padding: calc($padding/2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+.dark-mode .categoriesBar {
+  background-color: $color_dark_primary_1;
+  box-shadow: $box_dark_shadow;
+}

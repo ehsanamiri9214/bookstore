@@ -1,0 +1,99 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.page {
+  display: flex;
+  flex-direction: row;
+  .factor {
+    @include Card;
+    // @include CenterChildren();
+    flex-direction: column;
+    flex: 1;
+    margin-right: $padding;
+    .data {
+      @include Card;
+      margin-bottom: $padding;
+      p {
+        font-size: $font_size_1;
+        color: $color_text_1;
+        padding: $padding 0;
+        display: flex;
+        direction: rtl;
+        border-bottom: 1px solid $color_shadow;
+        &:last-of-type {
+          border: none;
+        }
+        .title {
+          flex: 1;
+          text-align: right;
+        }
+        .value {
+          flex: 4;
+          text-align: center;
+        }
+      }
+    }
+    button {
+      width: 100%;
+      background-color: $color_red;
+      color: $color_white;
+      outline: none;
+      border: none;
+      padding: $padding * 1.25 $padding * 4;
+      border-radius: $border_radius_1;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: $font_size_1;
+      @include CenterChildren();
+      box-shadow: $box_shadow;
+      margin: $padding 0 0 0;
+      &.changeAddress {
+        background-color: transparent;
+        margin-top: $padding;
+        color: $color_text_1;
+      }
+      span {
+        margin-left: $padding;
+      }
+      .icon {
+        font-size: $font_size_1 * 1.5;
+      }
+    }
+  }
+  .items {
+    flex: 2;
+    ul {
+      list-style-type: none;
+      li {
+        margin-bottom: $padding;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .notFound {
+    text-align: center;
+    margin: $padding * 2 0;
+    direction: rtl;
+    width: 100%;
+    color: $color_text_1;
+  }
+}
+
+.spinnerContainer {
+  padding-top: $padding;
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1000px) {
+  .page {
+    flex-direction: column !important;
+    .factor {
+      margin-right: 0;
+      margin-bottom: $padding;
+    }
+  }
+}

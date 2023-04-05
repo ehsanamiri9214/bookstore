@@ -1,0 +1,21 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.page {
+  height: 100%;
+  @include CenterChildren();
+  button {
+    background-color: $color_primary_2;
+    color: $color_white;
+    padding: $padding $padding * 2;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: $border_radius_1;
+    font-size: $font_size_1;
+    .icon{
+        margin-right: $padding;
+    }
+  }
+}

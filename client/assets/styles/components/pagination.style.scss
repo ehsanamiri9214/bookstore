@@ -1,0 +1,31 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.pagination {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  direction: rtl;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    &.active span {
+      background-color: $color_body_background;
+    }
+    span {
+      @include CenterChildren();
+      text-decoration: none;
+      font-size: $font_size_1;
+      color: $color_text_1;
+      border-radius: $border_radius_1;
+      transition: background-color 0.5s;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      &:hover {
+        background-color: $color_body_background;
+      }
+    }
+  }
+}

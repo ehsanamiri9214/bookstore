@@ -1,0 +1,46 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.page {
+  display: flex;
+  flex-direction: row;
+  direction: rtl;
+  @include Card;
+  .info {
+    flex: 1;
+    padding-left: $padding;
+    ul {
+      list-style-type: none;
+      direction: rtl;
+      li {
+        border-bottom: 1px solid $color_shadow;
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .map {
+    flex: 1;
+    height: 500px;
+    box-shadow: $box_shadow;
+    border-radius: $border_radius_1;
+    overflow: hidden;
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1000px) {
+  .page {
+    flex-direction: column;
+    .info {
+      margin-bottom: $padding;
+    }
+    .map {
+      flex: none;
+      height: 400px;
+    }
+  }
+}

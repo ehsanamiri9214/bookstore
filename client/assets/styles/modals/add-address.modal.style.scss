@@ -1,0 +1,71 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.modalContent {
+  padding-top: calc($padding * 4);
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    li {
+      padding: calc($padding/2);
+      > input {
+        width: 100%;
+        text-align: right;
+        direction: rtl;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $color_shadow;
+        padding: $padding;
+        color: $color_text_1;
+        font-size: $font_size_1;
+        @include RemoveArrows();
+      }
+    }
+  }
+  > textarea {
+    width: 100%;
+    resize: none;
+    text-align: right;
+    direction: rtl;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $color_shadow;
+    padding: $padding;
+    color: $color_text_1;
+    font-size: $font_size_1;
+  }
+  > button {
+    @include Button($font_size_1, $padding, $color_white, $color_primary_2);
+    @include CenterChildren();
+    width: 100%;
+    height: 50px;
+    border-radius: $border_radius_1;
+    margin-top: $padding;
+    span{
+      margin-left: $padding;
+    }
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 750px) {
+  .modalContent {
+    > ul {
+      flex-direction: column;
+      width: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .modalContent {
+    > ul {
+      flex-direction: column;
+      width: auto;
+    }
+  }
+}

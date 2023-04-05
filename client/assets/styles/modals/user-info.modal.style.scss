@@ -1,0 +1,49 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.modalContent {
+  min-width: 400px;
+  padding-top: calc($padding * 5);
+  p {
+    color: $color_text_1;
+    font-size: $font_size_1;
+    text-align: center;
+    direction: rtl;
+    margin-bottom: calc($padding * 2);
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    color: $color_text_1;
+    .formItem {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $color_shadow;
+      label {
+        flex: 1;
+        text-align: center;
+      }
+      input {
+        padding: $padding;
+        border: none;
+        outline: none;
+        text-align: center;
+        color: $color_text_1;
+        flex: 3;
+      }
+    }
+    button {
+      padding: $padding;
+      border: none;
+      outline: none;
+      border-radius: $border_radius_1;
+      margin-top: $padding;
+      color: $color_white;
+      background-color: $color_primary_2;
+      height: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}

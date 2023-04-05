@@ -1,0 +1,125 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.page {
+  display: flex;
+  flex-direction: row;
+  .results {
+    @include Card;
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    .sortItems {
+      border-bottom: 1px solid $color_shadow;
+      margin-bottom: calc($padding/2);
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        direction: rtl;
+        button {
+          @include Button($font_size_1, $padding, $color_text_1, transparent);
+        }
+      }
+    }
+    .items {
+      @include CenterChildren();
+      flex: 1;
+      .notFound {
+        text-align: center;
+        margin-top: $padding;
+        direction: rtl;
+        width: 100%;
+        color: $color_text_1;
+      }
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        direction: rtl;
+        flex: 1;
+        li {
+          // width: 25%;
+          flex:1;
+          @include CenterChildren();
+          align-self: flex-end;
+          padding: calc($padding/2);
+          display: flex;
+          cursor: pointer;
+        }
+      }
+    }
+    .paginationHolder{
+      @include CenterChildren();
+      margin-top: $padding;
+    }
+  }
+  .categories {
+    flex: 1;
+    margin-left: $padding;
+    ul {
+      list-style-type: none;
+      li {
+        margin-bottom: $padding;
+        color: $color_text_1;
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1100px) {
+  .page {
+    flex-direction: column !important;
+    .categories{
+      margin-left: 0;
+      margin-top: $padding;
+    }
+  }
+}
+
+// @media screen and (max-width: 900px) {
+//   .page {
+//     .left {
+//       .down {
+//         ul {
+//           li {
+//             width: 33.33%;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 700px) {
+//   .page {
+//     .left {
+//       .down {
+//         ul {
+//           li {
+//             width: 50%;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 450px) {
+//   .page {
+//     .left {
+//       .down {
+//         ul {
+//           li {
+//             width: 100%;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

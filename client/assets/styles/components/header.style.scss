@@ -1,0 +1,272 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+@import "@/assets/styles/_animations.scss";
+
+header {
+  background-color: $color_primary_1;
+  @include Stick(0, 1000);
+  box-shadow: $box_shadow;
+  display: flex;
+  > div {
+    display: flex;
+    align-items: center;
+    .icon {
+      width: 25px;
+      height: 25px;
+      color: $color_white;
+      margin: 0 $padding;
+      transition: transform 0.5s;
+    }
+    &:nth-child(1) {
+      flex: 1;
+      button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        height: 100%;
+        cursor: pointer;
+        position: relative;
+        span {
+          position: absolute;
+          bottom: 18px;
+          right: 4px;
+          background-color: $color_red;
+          color: $color_white;
+          font-size: $font_size_2;
+          font-weight: bold;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          @include CenterChildren();
+          padding-top: calc($padding/5);
+        }
+      }
+    }
+    &:nth-child(2) {
+      flex: 3;
+      justify-content: center;
+      background-color: $color_white;
+      color: $color_text_1;
+      margin: $padding * 1.5 0;
+      position: relative;
+      border-radius: $border_radius_1;
+      form {
+        border-radius: $border_radius_1;
+        overflow: hidden;
+        flex: 1;
+        display: flex;
+        height: 100%;
+        button {
+          background-color: transparent;
+          outline: none;
+          border: none;
+          border-right: 1px solid $color_shadow;
+          cursor: pointer;
+          .icon {
+            font-size: $font_size_1 * 1.25;
+            color: $color_primary_2;
+          }
+        }
+        input {
+          font-size: $font_size_1;
+          flex: 1;
+          height: 100%;
+          text-align: right;
+          direction: rtl;
+          border: none;
+          outline: none;
+          color: $color_text_1;
+          padding: 0 $padding;
+          border-radius: $border_radius_1;
+          &::placeholder {
+            color: $color_text_1;
+            font-size: $font_size_1 * 0.9;
+          }
+          &.leftDir {
+            text-align: left;
+            direction: ltr;
+          }
+        }
+      }
+      .notFound {
+        text-align: center;
+        margin: $padding 0;
+        direction: rtl;
+        width: 100%;
+      }
+      .results {
+        @include Card;
+        padding: 0;
+        animation: ComeUp 0.5s forwards;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1;
+        top: 100.75%;
+        left: 0;
+        width: 100%;
+        &.visible {
+          border: 10px solid blue;
+        }
+        .top {
+          border-bottom: 1px solid $color_shadow;
+          button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding: $padding 0;
+            cursor: pointer;
+            .icon {
+              font-size: $font_size_1 * 1.25;
+              color: $color_primary_2;
+            }
+          }
+        }
+        > .itemsContainer {
+          max-height: 400px;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          padding: calc($padding/2);
+          > .spinnerContainer {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: flex-start;
+            margin: $padding * 2 0;
+          }
+          .items {
+            ul {
+              flex: 1;
+              list-style-type: none;
+              direction: rtl;
+              li {
+                display: inline-block;
+                width: 50%;
+                padding: calc($padding/4);
+              }
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(3) {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      color: $color_white;
+      font-size: $font_size_1 * 1.25;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        text-decoration: none;
+        text-align: center;
+        color: $color_white;
+        padding: $padding * 1.5 $padding;
+        img {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          margin-left: $padding * 1.5;
+          transition: transform 0.5s;
+        }
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+    &:nth-child(4) {
+      display: none;
+      justify-content: flex-end;
+      button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        height: 100%;
+        transition: transform 0.5s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  // ------------------------------------------------------------------------------------------------------
+
+  @media screen and (max-width: 1000px) {
+    & {
+      display: grid;
+      grid-auto-flow: column;
+      > div {
+        &:first-of-type {
+          grid-column: 1 / 2;
+        }
+        &:nth-of-type(2) {
+          grid-column: 1 / 7;
+          margin: $padding;
+          margin-top: 0;
+          form {
+            input {
+              padding: $padding;
+            }
+          }
+          .items ul li {
+            // display: block;
+            width: 100% !important;
+          }
+        }
+        &:nth-of-type(3) {
+          grid-column: 2 / 5;
+          justify-content: center;
+          font-size: $font_size_1;
+        }
+        &:last-of-type {
+          display: flex;
+          grid-column: 5 / 7;
+        }
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+.dark-mode header {
+  background-color: $color_dark_primary_1;
+  > div {
+    .icon {
+      color: $color_dark_text_2;
+    }
+    &:nth-child(2) {
+      background-color: $color_dark_primary_1;
+      form {
+        border: 1px solid $color_dark_primary_3;
+        button {
+          border-right-color: $color_dark_primary_3;
+        }
+        input {
+          background-color: $color_dark_body_background;
+          color: $color_dark_text_2;
+          &::placeholder {
+            color: $color_dark_text_1;
+          }
+        }
+      }
+      .results {
+        @include DarkCard();
+      }
+    }
+    &:nth-child(3) {
+      a {
+        color: $color_dark_text_1;
+      }
+    }
+  }
+}

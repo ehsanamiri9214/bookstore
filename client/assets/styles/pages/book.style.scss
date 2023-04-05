@@ -1,0 +1,141 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+@import "@/assets/styles/_mixins.scss";
+
+.page {
+  .bookInfo {
+    @include Card;
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    .status {
+      flex: 1;
+      @include CenterChildren();
+      button {
+        background-color: $color_red;
+        color: $color_white;
+        outline: none;
+        border: none;
+        padding: $padding * 1.25 $padding * 4;
+        border-radius: $border_radius_1;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: $font_size_1;
+        @include CenterChildren();
+        box-shadow: $box_shadow;
+        span {
+          margin-left: $padding;
+        }
+        .icon {
+          font-size: $font_size_1 * 1.5;
+          // margin-right: $padding;
+        }
+      }
+    }
+    .info {
+      flex: 1;
+      list-style-type: none;
+      li {
+        border-radius: $border_radius_1;
+        &:last-of-type {
+          border: none;
+        }
+        &:nth-of-type(2n) {
+          background-color: transparentize(
+            $color: $color_body_background,
+            $amount: 0.5
+          );
+        }
+        &:last-of-type {
+          display: flex;
+          color: $color_text_1;
+          padding: $padding;
+          .title {
+            flex: 1;
+            text-align: right;
+            padding-right: calc($padding * 1.5);
+          }
+          .value {
+            flex: 3;
+            &.price {
+              font-size: $font_size_1 * 1.1;
+              padding: 0 calc($padding/2);
+              &.lineThrough {
+                text-decoration: line-through;
+                font-size: calc($font_size_1 * 0.9);
+              }
+            }
+          }
+        }
+      }
+    }
+    .imageContainer {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      &:hover {
+        img,
+        .icon {
+          transform: scale(1.05);
+        }
+      }
+      img {
+        width: 300px;
+        max-width: 100%;
+        border-radius: $border_radius_1;
+        box-shadow: $box_shadow;
+        transition: transform 0.5s;
+        opacity: 0;
+        cursor: pointer;
+        &.loaded {
+          animation: FadeIn 0.5s forwards;
+        }
+      }
+      .icon {
+        transition: transform 0.5s;
+        font-size: $font_size_1 * 10;
+        color: transparentize($color: $color_primary_1, $amount: 0.5);
+      }
+      .spinner {
+        @include AbsoluteCenter();
+      }
+      .discount {
+        background-color: red;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include Circle(50px);
+        @include CenterChildren();
+        box-shadow: $box_shadow;
+        font-weight: bold;
+      }
+    }
+  }
+  .similarItems {
+    margin-top: $padding;
+  }
+}
+
+.modalContent {
+  @include CenterChildren();
+  img {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: $border_radius_1;
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+@media screen and (max-width: 1000px) {
+  .bookInfo {
+    flex-direction: column !important;
+    .info {
+      margin: $padding 0;
+      padding-right: 0;
+    }
+  }
+}

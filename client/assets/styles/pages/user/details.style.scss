@@ -1,0 +1,28 @@
+@import "@/assets/styles/_colors.scss";
+@import "@/assets/styles/_variables.scss";
+
+.page {
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    direction: rtl;
+    li {
+      border-bottom: 1px solid $color_shadow;
+      &:last-of-type {
+        border: none;
+      }
+      a {
+        display: block;
+        padding: $padding;
+        border-radius: $border_radius_1;
+        margin-top: $padding;
+        color: $color_white;
+        background-color: $color_primary_2;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+}
