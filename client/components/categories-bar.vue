@@ -27,15 +27,33 @@ onMounted(async () => {
     <div class="categoriesBar">
         <ul>
             <li>
-                <NuxtLink :to="CLIENT_ROUTES.CART">
-                    <span>تخفیف ها</span>
-                    <Icon name="ic:baseline-percent" />
+                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
+                    <span>کتب دست دو</span>
+                    <Icon name="ic:round-published-with-changes" />
                 </NuxtLink>
             </li>
             <li>
-                <NuxtLink :to="CLIENT_ROUTES.CART">
-                    <span>پرفروش ترین ها</span>
-                    <Icon name="ic:outline-local-fire-department" />
+                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
+                    <span>لوازم جانبی</span>
+                    <Icon name="ic:baseline-coffee" />
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
+                    <span>لوازم التحریر</span>
+                    <Icon name="ic:baseline-signal-cellular-0-bar" />
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink :to="CLIENT_ROUTES.WRITERS">
+                    <span>نویسندگان</span>
+                    <Icon name="ic:outline-people" />
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink :to="CLIENT_ROUTES.PUBLISHERS">
+                    <span>انتشارات</span>
+                    <Icon name="ic:baseline-library-books" />
                 </NuxtLink>
             </li>
             <li>

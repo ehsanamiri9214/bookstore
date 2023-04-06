@@ -17,7 +17,7 @@ const SERVER_ROUTES = {
   SEARCH: "/search",
   QUICK_SEARCH: "/quickSearch",
   LOGOUT: "/auth/logout",
-}
+};
 
 const CLIENT_ROUTES = {
   HOME: "/",
@@ -33,10 +33,12 @@ const CLIENT_ROUTES = {
   CATEGORY: "/category",
   BOOK: "/book",
   SEARCH: "/search",
+  PUBLISHERS: "/publishers",
+  WRITERS: "/writers",
   FAQ: "/faq",
   RULES: "/rules",
   CONTACT_US: "/contact-us",
   ABOUT_US: "/about-us",
-}
+};
 
-export { SERVER_ROUTES, CLIENT_ROUTES }
+export { SERVER_ROUTES, CLIENT_ROUTES };
