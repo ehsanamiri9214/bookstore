@@ -92,9 +92,11 @@ onMounted(async () => {
                 </div>
             </li>
         </ul>
-</div>
+    </div>
 </template>
 
 <!-- ------------------------------------------------------------------------------------------------------ -->
 
-<style lang="scss" scoped>@import "@/assets/styles/components/categories-bar.style.scss"</style>
+<style lang="scss" scoped>
+@import "@/assets/styles/components/categories-bar.style.scss"
+</style>
