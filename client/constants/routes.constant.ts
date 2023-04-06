@@ -31,6 +31,7 @@ const CLIENT_ROUTES = {
   CART: "/cart",
   Add_ADDRESS: "/add-address",
   CATEGORY: "/category",
+  CATEGORIES: "/categories",
   BOOK: "/book",
   SEARCH: "/search",
   PUBLISHERS: "/publishers",

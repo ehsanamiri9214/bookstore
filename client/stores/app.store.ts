@@ -6,6 +6,7 @@ export const useAppStore = defineStore({
     const isAppReady: boolean = false;
     const resultsBoxStatus: boolean = false;
     const showModal: boolean = false;
+    const showDrawer: boolean = false;
     const loading: boolean = false;
     const feed: Feed = {
       banners: [],
@@ -16,6 +17,7 @@ export const useAppStore = defineStore({
       isAppReady,
       resultsBoxStatus,
       showModal,
+      showDrawer,
       loading,
       feed,
     };
@@ -29,6 +31,9 @@ export const useAppStore = defineStore({
     },
     setShowModal(value: boolean) {
       this.showModal = value;
+    },
+    setShowDrawer(value: boolean) {
+      this.showDrawer = value;
     },
     setLoading(value: boolean) {
       this.loading = value;

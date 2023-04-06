@@ -9,7 +9,7 @@ const appStore = useAppStore()
 const authStore = useAuthStore()
 const userStore = useUserStore()
 const cartStore = useCartStore()
-const { isAppReady, showModal, resultsBoxStatus } = storeToRefs(appStore)
+const { isAppReady, showModal, showDrawer, resultsBoxStatus } = storeToRefs(appStore)
 
 onMounted(async () => {
   const accessTokenCookie = useCookie('accessToken')
@@ -58,7 +58,7 @@ const getCart = async () => {
 <!-- ------------------------------------------------------------------------------------------------------ -->
 
 <template>
-  <div id="app" v-bind:class="{ showResultBox: resultsBoxStatus, hideScrolls: showModal }">
+  <div id="app" v-bind:class="{ showResultBox: resultsBoxStatus, hideScrolls: showModal || showDrawer }">
     <Header v-if="isAppReady" @click="() => { showResultsBox(false) }" />
     <Categories-bar v-if="isAppReady" @click="() => { showResultsBox(false) }" />
     <main @click="() => { showResultsBox(false) }">
@@ -70,9 +70,12 @@ const getCart = async () => {
     </main>
     <Footer v-if="isAppReady" />
     <div class="overlay" @click="showResultsBox(false)"></div>
-</div>
+    <Drawer v-if="showDrawer" />
+  </div>
 </template>
 
 <!-- ------------------------------------------------------------------------------------------------------ -->
 
-<style lang="scss">@import "./assets/styles/main.scss"</style>
+<style lang="scss">
+@import "./assets/styles/main.scss"
+</style>

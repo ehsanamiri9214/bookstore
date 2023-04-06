@@ -10,10 +10,14 @@ const appStore = useAppStore()
 const authStore = useAuthStore()
 const cartStore = useCartStore()
 const headerStore = useHeaderStore()
-const { resultsBoxStatus } = storeToRefs(appStore)
+const { resultsBoxStatus, showDrawer } = storeToRefs(appStore)
 const { isLoggedIn } = storeToRefs(authStore)
 const { leftDir, loading, searchPhrase, searchResults } = storeToRefs(headerStore)
 const { cart } = storeToRefs(cartStore)
+
+const setDrawer = (value: boolean) => {
+    appStore.setShowDrawer(value)
+}
 
 const showResultsBox = (value: boolean) => {
     appStore.setResultsBoxStatus(value)
@@ -78,8 +82,8 @@ const search = async (e) => {
     <header>
         <div>
             <!-- <button @click="switchTheme">
-                    <Icon name="ic:baseline-brightness-6" />
-                </button> -->
+                                <Icon name="ic:baseline-brightness-6" />
+                            </button> -->
             <button @click="goToCartPage">
                 <Icon name="ic:outline-shopping-cart" />
                 <span v-if="cart.items.length > 0">{{ cart.items.length }}</span>
@@ -128,13 +132,15 @@ const search = async (e) => {
             </NuxtLink>
         </div>
         <div>
-            <button id="menu">
+            <button id="menu" @click="() => { setDrawer(true) }">
                 <Icon name="ic:baseline-menu" />
             </button>
         </div>
-</header>
+    </header>
 </template>
 
 <!-- ------------------------------------------------------------------------------------------------------ -->
 
-<style lang="scss" scoped>@import "@/assets/styles/components/header.style.scss"</style>
+<style lang="scss" scoped>
+@import "@/assets/styles/components/header.style.scss"
+</style>
