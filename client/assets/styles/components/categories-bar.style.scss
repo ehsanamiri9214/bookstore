@@ -10,7 +10,7 @@
     display: flex;
     justify-content: flex-end;
     > li {
-      padding: $padding;
+      padding: $padding calc($padding * 1.25);
       cursor: pointer;
       text-align: center;
       @include AnimatedBorder($color_text_1, 0.5s);

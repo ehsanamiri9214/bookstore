@@ -28,14 +28,8 @@ onMounted(async () => {
         <ul>
             <li>
                 <NuxtLink :to="CLIENT_ROUTES.SEARCH">
-                    <span>کتب دست دو</span>
-                    <Icon name="ic:round-published-with-changes" />
-                </NuxtLink>
-            </li>
-            <li>
-                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
                     <span>لوازم جانبی</span>
-                    <Icon name="ic:baseline-coffee" />
+                    <Icon name="ic:outline-coffee" />
                 </NuxtLink>
             </li>
             <li>
@@ -54,6 +48,18 @@ onMounted(async () => {
                 <NuxtLink :to="CLIENT_ROUTES.PUBLISHERS">
                     <span>انتشارات</span>
                     <Icon name="ic:baseline-library-books" />
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
+                    <span>کتب کلکسیونی و قدیمی</span>
+                    <Icon name="ic:baseline-av-timer" />
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
+                    <span>کتب دست دو</span>
+                    <Icon name="ic:round-published-with-changes" />
                 </NuxtLink>
             </li>
             <li>
