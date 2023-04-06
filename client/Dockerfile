@@ -26,4 +26,4 @@ COPY . .
 
 RUN npm run build
 
-# ENTRYPOINT ["node", ".output/server/index.mjs"]
+ENTRYPOINT ["node", ".output/server/index.mjs"]

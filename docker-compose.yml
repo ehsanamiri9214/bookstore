@@ -97,7 +97,7 @@ services:
       context: ./client
       target: prod
       dockerfile: Dockerfile
-    command: node .output/server/index.mjs
+    # command: node .output/server/index.mjs
     ports:
       - 3000:3000
     networks:
