@@ -18,7 +18,7 @@ client/.vscode
 # ------------------------------------------------------
 # Nginx
 
-nginx/default.conf
+nginx/default.conf.prod
 
 # ------------------------------------------------------
 # Server

@@ -24,6 +24,6 @@ RUN npm i
 
 COPY . .
 
-# CMD ["npm", "run", "dev"]
+RUN npm run build
 
-# EXPOSE 3000
+# ENTRYPOINT ["node", ".output/server/index.mjs"]

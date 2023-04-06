@@ -1,11 +1,11 @@
 version: '3.4'
 services:
   nginx_dev:
-    container_name: nginx
+    container_name: nginx_dev
     image: nginx:stable-alpine
     build:
       context: ./nginx
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
       - 80:80
     networks:
@@ -17,11 +17,11 @@ services:
       - fe_dev
   # -----------------------------------------------------------------
   nginx_prod:
-    container_name: nginx
-    image: nginx
+    container_name: nginx_prod
+    image: nginx:stable-alpine
     build:
       context: ./nginx
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     ports:
       - 80:80
     networks:
@@ -63,7 +63,6 @@ services:
     command: npm run start:prod
     ports:
       - 8000:8000
-      - 9229:9229
     networks:
       - dibabook_network
     volumes:
@@ -98,7 +97,7 @@ services:
       context: ./client
       target: prod
       dockerfile: Dockerfile
-    command: npm run dev
+    command: node .output/server/index.mjs
     ports:
       - 3000:3000
     networks:
@@ -106,7 +105,7 @@ services:
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules
-    restart: unless-stopped
+    # restart: unless-stopped
   # -----------------------------------------------------------------
   db:
     container_name: db
