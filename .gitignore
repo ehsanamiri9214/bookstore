@@ -16,11 +16,6 @@ client/dist
 client/.vscode
 
 # ------------------------------------------------------
-# Nginx
-
-nginx/default.conf.prod
-
-# ------------------------------------------------------
 # Server
 
 server/.env
