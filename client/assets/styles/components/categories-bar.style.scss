@@ -20,6 +20,7 @@
         text-decoration: none;
       }
       .icon {
+        color: $color_text_1;
         margin-left: calc($padding/2);
       }
       &:last-of-type {

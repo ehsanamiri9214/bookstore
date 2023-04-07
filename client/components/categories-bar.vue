@@ -28,6 +28,18 @@ onMounted(async () => {
         <ul>
             <li>
                 <NuxtLink :to="CLIENT_ROUTES.SEARCH">
+                    <span>کتب کلکسیونی و قدیمی</span>
+                    <Icon name="ic:baseline-av-timer" />
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
+                    <span>کتب دست دو</span>
+                    <Icon name="ic:round-published-with-changes" />
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
                     <span>لوازم جانبی</span>
                     <Icon name="ic:outline-coffee" />
                 </NuxtLink>
@@ -51,20 +63,8 @@ onMounted(async () => {
                 </NuxtLink>
             </li>
             <li>
-                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
-                    <span>کتب کلکسیونی و قدیمی</span>
-                    <Icon name="ic:baseline-av-timer" />
-                </NuxtLink>
-            </li>
-            <li>
-                <NuxtLink :to="CLIENT_ROUTES.SEARCH">
-                    <span>کتب دست دو</span>
-                    <Icon name="ic:round-published-with-changes" />
-                </NuxtLink>
-            </li>
-            <li>
                 <span>دسته بندی ها</span>
-                <Icon name="ic:baseline-menu" />
+                <Icon name="ic:outline-category" />
                 <div class="categoriesContainer">
                     <div class="categories">
                         <div class="left">
